@@ -73,10 +73,10 @@ def list_files():
     for subdir, dirs, files in os.walk(rootdir + '/app/static/uploads/'):
         for file in files:
            lst.append(file)
-        return render_template("list_files.html",lst=lst)
+        return render_template("listing_files.html",lst=lst)
         
 ###
-# The functions below should be applicable to all Flask apps.
+# The functions below should be applicable to all Flask apps..
 ###
 
 @app.route('/<file_name>.txt')

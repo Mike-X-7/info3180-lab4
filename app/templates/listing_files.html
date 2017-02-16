@@ -4,8 +4,11 @@
 
     <div><h3>A List of Files</h3></div>
     {% for file in lst %}
+        {% if file.lower().split('.')[-1] == 'jpeg' or file.lower().split('.')[-1] == 'jpg'%}
             <div class="file"> <img src={{ url_for('static',filename= "uploads/"+ file )}} height="400" width="570"> </div>
-            <li> {{ file }} </li>
+            {% else %}
+                <li> {{ file }} </li>
+        {% endif %}
     {% endfor %}
     </div>
 {% endblock %}

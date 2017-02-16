@@ -64,12 +64,16 @@ def logout():
 @app.route('/filelisting')
 def list_files():
     """list the files in a directory"""
+    
+    if not session.get('logged_in'):
+        abort(401)
+        
     lst = []
     rootdir = os.getcwd()
     for subdir, dirs, files in os.walk(rootdir + '/app/static/uploads/'):
         for file in files:
            lst.append(file)
-        return render_template("listing_files.html",lst=lst)
+        return render_template("list_files.html",lst=lst)
         
 ###
 # The functions below should be applicable to all Flask apps.
